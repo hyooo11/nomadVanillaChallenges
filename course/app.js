@@ -1,7 +1,20 @@
-const h1 = document.querySelector("div.hello:first-child h1")
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
 
-function handleTitleClick(){
-   h1.classList.toggle("clicked");
+const link = document.querySelector("a");
+
+function onLoginSubmit(event){
+  event.preventDefault();
+  // const username = loginForm.value;
+  console.log(loginInput.value);
 }
 
-h1.addEventListener("click", handleTitleClick);
+function hadleLinkClick(event){
+  event.preventDefault();
+  console.dir(event);
+  alert("clicked!");
+};
+
+loginForm.addEventListener("submit", onLoginSubmit);
+link.addEventListener("click", hadleLinkClick);
+
