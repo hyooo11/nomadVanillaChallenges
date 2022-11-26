@@ -1,15 +1,16 @@
-const body = document.querySelector("body");
+const h1 = document.querySelector("h1");
+h1.style.color = "white";
 
-function windowResize() {
+function handleResize() {
   const size = window.innerWidth;
-  console.log(size);
-  if (size > 900) {
-    body.style.backgroundColor = "yellow";
-  } else if (size < 600) {
+  const body = document.body;
+  if (size < 700) {
+    body.style.backgroundColor = "blue";
+  } else if (size > 700 && size < 1400) {
     body.style.backgroundColor = "purple";
   } else {
-    body.style.backgroundColor = "blue";
+    body.style.backgroundColor = "yellow";
   }
 }
 
-window.addEventListener("resize", windowResize);
+window.addEventListener("resize", handleResize);
