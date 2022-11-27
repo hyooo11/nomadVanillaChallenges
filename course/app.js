@@ -1,20 +1,30 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-const link = document.querySelector("a");
+const HIDDEN_CALSSNAME = "hidden";
+const USERNAME_KEY = "username"
 
 function onLoginSubmit(event){
   event.preventDefault();
-  // const username = loginForm.value;
-  console.log(loginInput.value);
+  loginForm.classList.add(HIDDEN_CALSSNAME);
+  const username = loginInput.value;
+  localStorage.setItem(USERNAME_KEY, username)
+  paintGreetings(username);
 }
 
-function hadleLinkClick(event){
-  event.preventDefault();
-  console.dir(event);
-  alert("clicked!");
-};
+function paintGreetings(username){
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CALSSNAME);
+}
 
-loginForm.addEventListener("submit", onLoginSubmit);
-link.addEventListener("click", hadleLinkClick);
+const savedUsername = localStorage.getItem(USERNAME_KEY);
 
+if(savedUsername === null){
+  //show the form
+  loginForm.classList.remove(HIDDEN_CALSSNAME);
+  loginForm.addEventListener("submit", onLoginSubmit);
+}else{
+  //show the greetings
+  paintGreetings(savedUsername);
+}
