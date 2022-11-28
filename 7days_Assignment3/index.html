@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Vanilla Challenge</title>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="src/style.css"/>
+   </head>
+
+   <body>
+      <form id="randomGame">
+         <h2>Random Number Game!</h2>
+         <!-- 숫자의 범위 입력 -->
+         <h3 class="range">
+            Generate a number between 0 and
+            <input type="number" min="1" required/>
+         </h3>
+         <!-- 플레이해서 submit 할 숫자 입력 -->
+         <p class="submit-number">
+            Guess the number:
+            <input class="number" type="number"/>
+            <input class="btn" type="submit" value="Play!"/>
+         </p>
+         <!-- 숫자 매칭 영역 -->
+         <p class="board">
+            You chose:
+            <span class="chose-view"></span>,
+            the machine chose:
+            <span class="random-view"></span>
+         </p>
+         <!-- 승패 결과 출력 영역 -->
+         <p class="result"></p>
+      </form>
+      <script src="src/index.js"></script>
+   </body>
+</html>
